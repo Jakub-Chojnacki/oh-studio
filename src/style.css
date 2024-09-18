@@ -1,4 +1,4 @@
-root {
+:root {
   --clr-pill-bg: #f3f2f1;
   --clr-accent-400: #bfbfbf;
 }
@@ -27,6 +27,7 @@ root {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Inter Variable', sans-serif;
 }
 
 /*
