@@ -1,6 +1,10 @@
 :root {
   --clr-pill-bg: #f3f2f1;
   --clr-accent-400: #bfbfbf;
+
+  --spacing-sm:1rem;
+  --spacing-md:2rem;
+  --spacing-lg:2.5rem;
 }
 
 /*
@@ -71,4 +75,13 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+ul{
+  list-style:none;
+}
+
+a{
+  text-decoration:none;
+  color:black;
 }
