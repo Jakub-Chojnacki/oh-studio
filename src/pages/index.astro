@@ -1,7 +1,37 @@
 ---
+import HeroText from "@components/HeroText.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="OH.STUDIO" />
+<Layout title="OH.STUDIO">
+  <HeroText text="A brand and product designer working with clients globally">
+    <div class="pill-wrapper">
+      <span>Expertise</span>
+      <span class="pill">Branding</span>
+      <span class="pill">Product</span>
+      <span class="pill">Design Systems</span>
+    </div>
+  </HeroText>
+</Layout>
 
-<style></style>
+<style>
+  .pill-wrapper {
+    display:none;
+    gap: 1rem;
+    font-size: 0.875rem;
+
+    span {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+
+  @media (min-width:800px){
+    .pill-wrapper{
+        display:flex;
+    }
+  }
+  .pill {
+    background-color: var(--clr-pill-bg);
+    border-radius: 100px;
+  }
+</style>

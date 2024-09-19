@@ -1,0 +1,37 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class="wrapper">
+  <h1>{text}</h1>
+  <slot />
+</div>
+
+<style>
+  .wrapper {
+    padding: var(--spacing-md);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 5vw + 1rem, 4rem);
+    line-height: clamp(1.5rem, 5vw + 1.5rem, 4.5rem);
+    font-weight: 500;
+  }
+
+  @media (min-width: 800px) {
+    h1 {
+      max-width: 40vw;
+    }
+  }
+</style>
