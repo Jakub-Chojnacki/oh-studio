@@ -1,6 +1,35 @@
 ---
 import HeroText from "@components/HeroText.astro";
 import Layout from "../layouts/Layout.astro";
+import ImageGrid from "@components/ImageGrid.astro";
+import GridSingleImage from "@components/GridSingleImage.astro";
+
+const imagesConfig = [
+  {
+    imagePath: "/src/assets/images/1.jpg",
+    altText: "Brand 1",
+  },
+  {
+    imagePath: "/src/assets/images/2.jpg",
+    altText: "Brand 2",
+  },
+  {
+    imagePath: "/src/assets/images/3.jpg",
+    altText: "Brand 3",
+  },
+  {
+    imagePath: "/src/assets/images/5.jpg",
+    altText: "Brand 4",
+  },
+  {
+    imagePath: "/src/assets/images/6.jpg",
+    altText: "Brand 5",
+  },
+  {
+    imagePath: "/src/assets/images/4.jpg",
+    altText: "Brand 6",
+  },
+];
 ---
 
 <Layout title="OH.STUDIO">
@@ -12,11 +41,25 @@ import Layout from "../layouts/Layout.astro";
       <span class="pill">Design Systems</span>
     </div>
   </HeroText>
+  <ImageGrid>
+    {
+      imagesConfig.map(({ imagePath, altText }) => (
+        <div class="img-wrapper">
+          <GridSingleImage imagePath={imagePath} altText={altText} />
+        </div>
+      ))
+    }
+  </ImageGrid>
 </Layout>
 
 <style>
+  .img-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
   .pill-wrapper {
-    display:none;
+    display: none;
     gap: 1rem;
     font-size: 0.875rem;
 
@@ -25,9 +68,9 @@ import Layout from "../layouts/Layout.astro";
     }
   }
 
-  @media (min-width:800px){
-    .pill-wrapper{
-        display:flex;
+  @media (min-width: 800px) {
+    .pill-wrapper {
+      display: flex;
     }
   }
   .pill {
