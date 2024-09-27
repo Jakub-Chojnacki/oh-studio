@@ -8,26 +8,32 @@ const imagesConfig = [
   {
     imagePath: "/src/assets/images/1.jpg",
     altText: "Brand 1",
+    brandName: "Test",
   },
   {
     imagePath: "/src/assets/images/2.jpg",
     altText: "Brand 2",
+    brandName: "Test",
   },
   {
     imagePath: "/src/assets/images/3.jpg",
     altText: "Brand 3",
+    brandName: "Test",
   },
   {
     imagePath: "/src/assets/images/5.jpg",
     altText: "Brand 4",
+    brandName: "Test",
   },
   {
     imagePath: "/src/assets/images/6.jpg",
     altText: "Brand 5",
+    brandName: "Something",
   },
   {
     imagePath: "/src/assets/images/4.jpg",
     altText: "Brand 6",
+    brandName: "Test",
   },
 ];
 ---
@@ -43,21 +49,14 @@ const imagesConfig = [
   </HeroText>
   <ImageGrid>
     {
-      imagesConfig.map(({ imagePath, altText }) => (
-        <div class="img-wrapper">
-          <GridSingleImage imagePath={imagePath} altText={altText} />
-        </div>
+      imagesConfig.map(({ imagePath, altText, brandName }) => (
+        <GridSingleImage imagePath={imagePath} altText={altText} brandName={brandName}/>
       ))
     }
   </ImageGrid>
 </Layout>
 
 <style>
-  .img-wrapper {
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
   .pill-wrapper {
     display: none;
     gap: 1rem;
