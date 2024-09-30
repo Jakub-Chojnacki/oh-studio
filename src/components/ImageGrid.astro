@@ -14,15 +14,10 @@
     img {
       width: 100%;
       object-fit: cover;
-      max-height: 300px;
+      max-height: 500px;
       border-radius: 12px;
-      cursor:pointer;
+      cursor: pointer;
       transition: filter 0.5s ease-in-out;
-
-    }
-
-    img:hover {
-      filter: blur(12px) brightness(0.9);
     }
   }
 
@@ -30,8 +25,8 @@
     .image-grid {
       grid-template-columns: 1fr 1fr;
 
-      img {
-        max-height: 500px;
+      img:hover {
+        filter: blur(12px) brightness(0.9);
       }
     }
   }
