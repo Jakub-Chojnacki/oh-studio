@@ -1,7 +1,194 @@
 ---
+import HeroText from "@components/HeroText.astro";
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import ExperienceGrid from "@components/ExperienceGrid.astro";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png,gif}"
+);
+
+const workplaces = [
+  {
+    time: "2023 - Present",
+    name: "NativeState",
+    role: "Design Director",
+    tag: "Co-Founder",
+  },
+  {
+    time: "2017 - Present",
+    name: "OH.STUDIO",
+    role: "Freelance Designer",
+    tag: "Director",
+  },
+  {
+    time: "2021 - Present",
+    name: "Friendly Studio",
+    role: "Lead Product Designer",
+    tag: "Freelance",
+  },
+  {
+    time: "2023 - Present",
+    name: "NativeState",
+    role: "Design Director",
+    tag: "Co-Founder",
+  },
+  {
+    time: "2017 - Present",
+    name: "OH.STUDIO",
+    role: "Freelance Designer",
+    tag: "Director",
+  },
+  {
+    time: "2021 - Present",
+    name: "Friendly Studio",
+    role: "Lead Product Designer",
+    tag: "Freelance",
+  },
+  {
+    time: "2023 - Present",
+    name: "NativeState",
+    role: "Design Director",
+    tag: "Co-Founder",
+  },
+  {
+    time: "2017 - Present",
+    name: "OH.STUDIO",
+    role: "Freelance Designer",
+    tag: "Director",
+  },
+  {
+    time: "2021 - Present",
+    name: "Friendly Studio",
+    role: "Lead Product Designer",
+    tag: "Freelance",
+  },
+  {
+    time: "2023 - Present",
+    name: "NativeState",
+    role: "Design Director",
+    tag: "Co-Founder",
+  },
+  {
+    time: "2017 - Present",
+    name: "OH.STUDIO",
+    role: "Freelance Designer",
+    tag: "Director",
+  },
+  {
+    time: "2021 - Present",
+    name: "Friendly Studio",
+    role: "Lead Product Designer",
+    tag: "Freelance",
+  },
+];
 ---
 
-<Layout title="OH.STUDIO" />
+<Layout title="OH.STUDIO">
+  <HeroText text="Hey👋🏼 I'm Oli" />
+  <div class="img-wrapper">
+    <Image src={images["/src/assets/images/4.jpg"]()} alt={"altText"} />
+    <Image src={images["/src/assets/images/5.jpg"]()} alt={"altText"} />
+  </div>
+  <div class="about-wrapper">
+    <span class="pill">About</span>
+    <p>
+      A freelance designer based in the UK. I combine my experience in product
+      and brand to solve problems, tell stories, and create compelling
+      experiences.
+    </p>
+  </div>
+  <div class="experience-wrapper">
+    <span class="pill">Experience</span>
+    <h2>Where I've worked</h2>
+    <ExperienceGrid workplaces={workplaces} />
+  </div>
+  <div>Clients</div>
+</Layout>
 
-<style></style>
+<style>
+  .img-wrapper {
+    display: flex;
+    gap: 1rem;
+    max-width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2.5rem;
+
+    img {
+      height: 300px;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 12px;
+      aspect-ratio: 5/4;
+    }
+  }
+
+  .pill {
+    background-color: var(--clr-pill-bg);
+    padding: 0.625rem 1.25rem;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    line-height: 1.05rem;
+  }
+
+  .about-wrapper {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    text-wrap: balance;
+    font-size: 1.5rem;
+    font-weight: 500;
+    gap: 0.5rem;
+
+    p {
+      max-width: 80%;
+    }
+  }
+
+  .experience-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    h2 {
+      font-size: 1.875rem;
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .img-wrapper {
+      img {
+        height: 420px;
+      }
+    }
+
+    .about-wrapper {
+      font-size: 2.375rem;
+      padding: 8.75rem 2.5rem;
+
+      p {
+        width: 700px;
+        line-height: 2.5rem;
+        letter-spacing: var(--letter-spacing-default);
+      }
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .img-wrapper {
+      img {
+        height: 520px;
+      }
+    }
+    .experience-wrapper {
+      h2 {
+        font-size: 2.375rem;
+      }
+    }
+  }
+</style>

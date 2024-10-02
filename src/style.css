@@ -2,10 +2,13 @@
   --clr-pill-bg: #f3f2f1;
   --clr-accent-400: #bfbfbf;
   --clr-accent-300: #999999;
+  --clr-accent-200: #828282;
 
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 2.5rem;
+
+  --letter-spacing-default: -0.2rem;
 }
 
 /*
@@ -85,4 +88,14 @@ ul {
 a {
   text-decoration: none;
   color: black;
+}
+
+.pill {
+  color:black;
+  background-color: var(--clr-pill-bg);
+  padding: 0.625rem 1.25rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  line-height: 1.05rem;
+  width: fit-content;
 }
