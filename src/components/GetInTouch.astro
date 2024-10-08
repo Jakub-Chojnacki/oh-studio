@@ -6,10 +6,48 @@ interface Props {
 const { isContact } = Astro.props;
 ---
 
-<h2 class=`wrapper ${isContact ? 'contact' : ''}`>
-  <span>Let's work together.</span>
-  <a href="/">Get in touch.</a>
+<h2 class=`contact-wrapper ${isContact ? 'contact' : ''}`>
+  <span class="contact-span">Let's work together.</span>
+  <a href="/" class="contact-a">Get in touch.</a>
 </h2>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { slowEase } from "@utils/animations";
+
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.fromTo(
+    ".contact-span",
+    {
+      y: 75,
+      opacity: 0,
+    },
+    {
+      scrollTrigger: ".contact-wrapper",
+      y: 0,
+      opacity: 1,
+      duration: 0.7,
+      ease: slowEase,
+    }
+  );
+
+  gsap.fromTo(
+    ".contact-a",
+    {
+      y: 75,
+      opacity: 0,
+    },
+    {
+      scrollTrigger: ".contact-wrapper",
+      y: 0,
+      delay: 0.075,
+      opacity: 1,
+      duration: 0.7,
+      ease: slowEase,
+    }
+  );
+</script>
 
 <style>
   :root {
@@ -24,7 +62,7 @@ const { isContact } = Astro.props;
     font-weight: bold;
   }
 
-  .wrapper {
+  .contact-wrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -44,7 +82,7 @@ const { isContact } = Astro.props;
   }
 
   @media (min-width: 800px) {
-    .wrapper {
+    .contact-wrapper {
       font-size: var(--font-size-desktop);
       min-height: 375px;
     }

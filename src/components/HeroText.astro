@@ -7,9 +7,14 @@ const { text } = Astro.props;
 ---
 
 <div class="wrapper">
-  <h1>{text}</h1>
+  <h1 class="hero-text">{text}</h1>
   <slot />
 </div>
+
+<script>
+  import { slideIn } from "@utils/animations";
+  slideIn(".hero-text");
+</script>
 
 <style>
   .wrapper {
@@ -30,8 +35,8 @@ const { text } = Astro.props;
   }
 
   @media (min-width: 800px) {
-    .wrapper{
-     height: 70vh;
+    .wrapper {
+      height: 70vh;
     }
     h1 {
       max-width: 40vw;

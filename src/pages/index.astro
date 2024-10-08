@@ -6,22 +6,22 @@ import GridSingleImage from "@components/GridSingleImage.astro";
 
 const imagesConfig = [
   {
-    imagePath: "/src/assets/images/1.jpg",
+    imagePath: "/src/assets/images/6.jpg",
     altText: "Brand 1",
     brandName: "Test",
   },
   {
-    imagePath: "/src/assets/images/2.jpg",
+    imagePath: "/src/assets/images/6.jpg",
     altText: "Brand 2",
     brandName: "Test",
   },
   {
-    imagePath: "/src/assets/images/3.jpg",
+    imagePath: "/src/assets/images/6.jpg",
     altText: "Brand 3",
     brandName: "Test",
   },
   {
-    imagePath: "/src/assets/images/5.jpg",
+    imagePath: "/src/assets/images/6.jpg",
     altText: "Brand 4",
     brandName: "Test",
   },
@@ -31,7 +31,7 @@ const imagesConfig = [
     brandName: "Something",
   },
   {
-    imagePath: "/src/assets/images/4.jpg",
+    imagePath: "/src/assets/images/6.jpg",
     altText: "Brand 6",
     brandName: "Test",
   },
@@ -50,11 +50,21 @@ const imagesConfig = [
   <ImageGrid>
     {
       imagesConfig.map(({ imagePath, altText, brandName }) => (
-        <GridSingleImage imagePath={imagePath} altText={altText} brandName={brandName}/>
+        <GridSingleImage
+          imagePath={imagePath}
+          altText={altText}
+          brandName={brandName}
+        />
       ))
     }
   </ImageGrid>
 </Layout>
+
+<script>
+  import { slideIn } from "@utils/animations";
+
+  slideIn(".pill-wrapper", 0.05);
+</script>
 
 <style>
   .pill-wrapper {
