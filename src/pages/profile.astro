@@ -1,91 +1,20 @@
 ---
+import { Image } from "astro:assets";
+
 import HeroText from "@components/HeroText.astro";
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
 import ExperienceGrid from "@components/ExperienceGrid.astro";
+import ClientsGrid from "@components/ClientsGrid.astro";
+
+import { workplaces, clients } from "@constants/const";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/*.{jpeg,jpg,png,gif}"
 );
-
-const workplaces = [
-  {
-    time: "2023 - Present",
-    name: "NativeState",
-    role: "Design Director",
-    tag: "Co-Founder",
-  },
-  {
-    time: "2017 - Present",
-    name: "OH.STUDIO",
-    role: "Freelance Designer",
-    tag: "Director",
-  },
-  {
-    time: "2021 - Present",
-    name: "Friendly Studio",
-    role: "Lead Product Designer",
-    tag: "Freelance",
-  },
-  {
-    time: "2023 - Present",
-    name: "NativeState",
-    role: "Design Director",
-    tag: "Co-Founder",
-  },
-  {
-    time: "2017 - Present",
-    name: "OH.STUDIO",
-    role: "Freelance Designer",
-    tag: "Director",
-  },
-  {
-    time: "2021 - Present",
-    name: "Friendly Studio",
-    role: "Lead Product Designer",
-    tag: "Freelance",
-  },
-  {
-    time: "2023 - Present",
-    name: "NativeState",
-    role: "Design Director",
-    tag: "Co-Founder",
-  },
-  {
-    time: "2017 - Present",
-    name: "OH.STUDIO",
-    role: "Freelance Designer",
-    tag: "Director",
-  },
-  {
-    time: "2021 - Present",
-    name: "Friendly Studio",
-    role: "Lead Product Designer",
-    tag: "Freelance",
-  },
-  {
-    time: "2023 - Present",
-    name: "NativeState",
-    role: "Design Director",
-    tag: "Co-Founder",
-  },
-  {
-    time: "2017 - Present",
-    name: "OH.STUDIO",
-    role: "Freelance Designer",
-    tag: "Director",
-  },
-  {
-    time: "2021 - Present",
-    name: "Friendly Studio",
-    role: "Lead Product Designer",
-    tag: "Freelance",
-  },
-];
 ---
 
 <Layout title="OH.STUDIO">
-  <HeroText text="Hey👋🏼 I'm Oli"/>
+  <HeroText text="Hey👋🏼 I'm Oli" />
   <div class="img-wrapper">
     <Image src={images["/src/assets/images/6.jpg"]()} alt={"altText"} />
     <Image src={images["/src/assets/images/5.jpg"]()} alt={"altText"} />
@@ -98,12 +27,16 @@ const workplaces = [
       experiences.
     </p>
   </div>
-  <div class="experience-wrapper">
+  <div class="section-wrapper">
     <span class="pill">Experience</span>
     <h2>Where I've worked</h2>
     <ExperienceGrid workplaces={workplaces} />
   </div>
-  <div>Clients</div>
+  <div class="section-wrapper clients-wrapper">
+    <span class="pill">Clients</span>
+    <h2>Who I've worked with</h2>
+    <ClientsGrid clients={clients} />
+  </div>
 </Layout>
 
 <style>
@@ -148,7 +81,7 @@ const workplaces = [
     }
   }
 
-  .experience-wrapper {
+  .section-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -158,6 +91,10 @@ const workplaces = [
       font-size: 1.875rem;
       margin-bottom: 3rem;
     }
+  }
+
+  .clients-wrapper {
+    margin-top: 2rem;
   }
 
   @media (min-width: 800px) {

@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  imagePath: string;
+  name: string;
+}
+
+const { imagePath, name } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/clients/*.{jpeg,jpg,png,gif}"
+);
+
+if (!images[imagePath])
+  throw new Error(
+    `"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
+---
+
+<div class="client-img-wrapper">
+  <Image src={images[imagePath]()} alt={name} />
+</div>
+
+<style>
+  .client-img-wrapper {
+    filter: invert(1);
+    max-width: 180px;
+    aspect-ratio: 180/125;
+
+    img {
+      object-fit: cover;
+      max-height: 100%;
+    }
+  }
+</style>
